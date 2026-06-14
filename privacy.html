@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>Spotter — Privacy Policy</h1>
-<p class="muted">Last updated: 12 June 2026</p>
+<p class="muted">Last updated: 13 June 2026</p>
 
 <p>Spotter ("the app", "we") is a fitness-tracking app with an AI pose-analysis coach.
 This policy explains what data we collect, why, and your choices.</p>
@@ -21,7 +21,7 @@ This policy explains what data we collect, why, and your choices.</p>
 <ul>
   <li><strong>Account:</strong> your email address (for sign-in), via our authentication provider Supabase.</li>
   <li><strong>Profile &amp; fitness data:</strong> name, age, gender, height, weight, goals, training preferences, workout logs, training sessions, weight history, and AI-coaching records. Stored on your device and synced to your private account in Supabase.</li>
-  <li><strong>Camera &amp; microphone:</strong> used only on your device for real-time pose detection and optional workout-video recording. Video is processed locally and is not uploaded to our servers.</li>
+  <li><strong>Camera, microphone &amp; body-pose data:</strong> used only on your device for real-time pose detection and optional workout-video recording. The app estimates body landmarks (joint positions) from the camera to analyse your movement — this body-pose data is a form of biometric-style data. It is processed entirely <strong>on your device in real time, is never stored, and is never uploaded</strong> to our servers or any third party. Recorded videos stay on your device unless you choose to share them yourself.</li>
   <li><strong>AI coaching &amp; chat:</strong> text describing your exercise (e.g. joint angles, rep counts) and your chat messages are sent through our secure backend to a third-party AI provider to generate feedback.</li>
   <li><strong>Usage analytics:</strong> app events (screens viewed, features used, sign-ups, logins) collected via PostHog to help us improve the app. This may include session interaction data.</li>
   <li><strong>Crash &amp; error reports:</strong> diagnostic data (device model, OS version, error stack traces) collected via Sentry when the app encounters an error.</li>
@@ -45,20 +45,32 @@ PostHog (analytics), and Sentry (crash reporting). Each processes data only to p
 <p>Your account data is protected by row-level security so that you can only access your own records.
 Network traffic uses HTTPS. AI provider keys are kept on our server and are never stored in the app.</p>
 
-<h2>5. Your rights</h2>
+<h2>5. Data retention</h2>
+<p>We keep your account and fitness data for as long as your account exists. When you delete your
+account (in-app: 我的 → 刪除帳戶, or by emailing us), your records are removed from our database
+immediately. Body-pose data from the camera is never retained — it exists only momentarily on your
+device during analysis. Crash and analytics data is retained by our providers for a limited period
+per their standard policies.</p>
+
+<h2>6. Hong Kong PDPO</h2>
+<p>We handle personal data in accordance with the Hong Kong Personal Data (Privacy) Ordinance (Cap. 486).
+You have the right to access and correct your personal data, and to request its deletion. Use the
+in-app account-deletion feature or contact us at the email below.</p>
+
+<h2>7. Your rights</h2>
 <p>You can edit your profile in the app and sign out at any time. You can permanently delete your
 account and all associated data directly in the app: go to <strong>我的 (Profile) → 刪除帳戶 (Delete Account)</strong>.
 This immediately and irreversibly removes your account and all your records (profile, workouts,
 sessions, weight, nutrition, AI-coaching history, and diagnostics) from our database. You may also
 email us at the address below to request deletion.</p>
 
-<h2>6. Children</h2>
+<h2>8. Children</h2>
 <p>Spotter is not directed to children under 13 (or the minimum age in your region).</p>
 
-<h2>7. Changes</h2>
+<h2>9. Changes</h2>
 <p>We may update this policy and will revise the date above.</p>
 
-<h2>8. Contact</h2>
+<h2>10. Contact</h2>
 <p>Questions or data requests: <strong>thomasqqchan@gmail.com</strong></p>
 </body>
 </html>
