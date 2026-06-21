@@ -128,6 +128,11 @@
       <td>If you generate a share code, your workout history and progress may be visible to anyone who enters that code. You control this at all times.</td>
       <td>Only if you generate and distribute a share code</td>
     </tr>
+    <tr>
+      <td><strong>Subscription & purchase data</strong></td>
+      <td>Subscription status (active / expired / trial), purchase history, and entitlement records. Used to unlock Spotter Pro features and restore your subscription on reinstall. Managed via Apple App Store and RevenueCat; we do not store payment card details.</td>
+      <td>Only if you start a free trial or purchase a Spotter Pro subscription</td>
+    </tr>
   </table>
 
   <h2>3. How We Use Your Data</h2>
@@ -147,6 +152,8 @@
     <tr><th>Provider</th><th>Purpose</th><th>Data shared</th></tr>
     <tr><td><strong>Supabase</strong></td><td>Authentication, database, cloud storage</td><td>Account data, profile, all fitness/nutrition/coaching records</td></tr>
     <tr><td><strong>AI Provider</strong> (via our secure proxy)</td><td>Generate coaching responses, food recognition, InBody parsing</td><td>Chat messages, exercise summaries, meal photos/text, InBody photos</td></tr>
+    <tr><td><strong>Apple Inc.</strong></td><td>Payment processing for Spotter Pro subscriptions (App Store)</td><td>Purchase transaction data, subscription status — managed entirely by Apple; we do not receive raw payment card details</td></tr>
+    <tr><td><strong>RevenueCat</strong></td><td>Subscription management and receipt verification</td><td>Anonymous user ID (your Supabase account ID), purchase records, subscription status, device platform data. RevenueCat does not receive your name, email, or workout data.</td></tr>
     <tr><td><strong>PostHog</strong></td><td>Usage analytics</td><td>Anonymised event data (no raw personal data fields)</td></tr>
     <tr><td><strong>Sentry</strong></td><td>Crash reporting</td><td>Device info, OS version, error stack traces</td></tr>
   </table>
