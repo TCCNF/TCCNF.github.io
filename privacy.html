@@ -3,74 +3,210 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Spotter — Privacy Policy</title>
+<title>Privacy Policy — Spotter</title>
 <style>
-  body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:760px;margin:40px auto;padding:0 20px;line-height:1.6;color:#1a1a1a}
-  h1{font-size:28px} h2{font-size:20px;margin-top:32px} code{background:#f2f2f2;padding:2px 5px;border-radius:4px}
-  .muted{color:#666;font-size:14px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--accent:#FF6B35;--bg:#0a0a0a;--card:#141414;--border:#222;--text:#f0f0f0;--muted:#888}
+  body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);background:rgba(10,10,10,.95)}
+  .nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;color:var(--text);text-decoration:none}
+  .nav-icon{width:32px;height:32px;background:#1c1c1e;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px}
+  .nav-right{display:flex;gap:24px;font-size:14px;color:var(--muted)}
+  .nav-right a{color:var(--muted)}
+  .nav-right a:hover{color:var(--text);text-decoration:none}
+  .container{max-width:760px;margin:0 auto;padding:60px 24px 80px}
+  h1{font-size:32px;font-weight:800;margin-bottom:8px}
+  .meta{color:var(--muted);font-size:14px;margin-bottom:40px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+  h2{font-size:18px;font-weight:700;margin:40px 0 12px;color:var(--accent)}
+  p{font-size:15px;color:#ccc;margin-bottom:12px}
+  ul,ol{padding-left:20px;margin-bottom:12px}
+  li{font-size:15px;color:#ccc;margin-bottom:6px}
+  strong{color:var(--text)}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
+  th{background:var(--card);color:var(--text);font-weight:600;text-align:left;padding:10px 14px;border:1px solid var(--border)}
+  td{padding:10px 14px;border:1px solid var(--border);color:#ccc;vertical-align:top}
+  .note{background:#0d1a2a;border:1px solid #0d3a5c;border-radius:10px;padding:14px 18px;margin:16px 0;font-size:14px;color:#6aabda}
+  footer{border-top:1px solid var(--border);padding:32px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:14px;color:var(--muted)}
+  footer a{color:var(--muted)}
+  footer a:hover{color:var(--text)}
+  @media(max-width:600px){nav{padding:16px 20px}.nav-right{gap:16px}footer{flex-direction:column}}
 </style>
 </head>
 <body>
-<h1>Spotter — Privacy Policy</h1>
-<p class="muted">Last updated: 13 June 2026</p>
 
-<p>Spotter ("the app", "we") is a fitness-tracking app with an AI pose-analysis coach.
-This policy explains what data we collect, why, and your choices.</p>
+<nav>
+  <a href="/" class="nav-logo"><div class="nav-icon">🏋️</div>Spotter</a>
+  <div class="nav-right">
+    <a href="/">Home</a>
+    <a href="/guide.html">Guide</a>
+    <a href="/terms.html">Terms</a>
+  </div>
+</nav>
 
-<h2>1. Information we collect</h2>
-<ul>
-  <li><strong>Account:</strong> your email address (for sign-in), via our authentication provider Supabase.</li>
-  <li><strong>Profile &amp; fitness data:</strong> name, age, gender, height, weight, goals, training preferences, workout logs, training sessions, weight history, and AI-coaching records. Stored on your device and synced to your private account in Supabase.</li>
-  <li><strong>Camera, microphone &amp; body-pose data:</strong> used only on your device for real-time pose detection and optional workout-video recording. The app estimates body landmarks (joint positions) from the camera to analyse your movement — this body-pose data is a form of biometric-style data. It is processed entirely <strong>on your device in real time, is never stored, and is never uploaded</strong> to our servers or any third party. Recorded videos stay on your device unless you choose to share them yourself.</li>
-  <li><strong>AI coaching &amp; chat:</strong> text describing your exercise (e.g. joint angles, rep counts) and your chat messages are sent through our secure backend to a third-party AI provider to generate feedback.</li>
-  <li><strong>Usage analytics:</strong> app events (screens viewed, features used, sign-ups, logins) collected via PostHog to help us improve the app. This may include session interaction data.</li>
-  <li><strong>Crash &amp; error reports:</strong> diagnostic data (device model, OS version, error stack traces) collected via Sentry when the app encounters an error.</li>
-  <li><strong>Diagnostic &amp; performance data:</strong> app version, device model, OS version, and language, plus AI-request performance (which feature, response time, and whether the AI or an offline fallback answered). Linked to your account and used only to keep the app running well.</li>
-  <li><strong>Feedback:</strong> messages you choose to submit via the in-app feedback form.</li>
-</ul>
+<div class="container">
+  <h1>Privacy Policy</h1>
+  <p class="meta">Last updated: 21 June 2026 &nbsp;·&nbsp; Governing law: Hong Kong SAR</p>
 
-<h2>2. How we use your data</h2>
-<ul>
-  <li>To provide app features (tracking, plans, AI coaching) and sync your data across devices.</li>
-  <li>To understand usage and improve the app (analytics).</li>
-  <li>To detect, diagnose, and fix crashes and bugs.</li>
-</ul>
+  <p>Spotter ("the app", "we", "us") is a fitness-tracking app with an AI pose-analysis coach, workout planner, nutrition logger, and AI health coach. This policy explains what personal data we collect, why we collect it, how it is used and shared, and your rights under the Hong Kong Personal Data (Privacy) Ordinance (Cap. 486) ("PDPO").</p>
 
-<h2>3. Data sharing</h2>
-<p>We do not sell your data. We share data only with the service providers that operate the app:
-Supabase (account, database), our AI provider (to generate coaching responses),
-PostHog (analytics), and Sentry (crash reporting). Each processes data only to provide their service.</p>
+  <h2>1. Data Controller</h2>
+  <p>The data controller is the operator of Spotter, contactable at <strong>support@spotterhk.com</strong>. All requests relating to personal data should be directed to this address.</p>
 
-<h2>4. Data security &amp; access control</h2>
-<p>Your account data is protected by row-level security so that you can only access your own records.
-Network traffic uses HTTPS. AI provider keys are kept on our server and are never stored in the app.</p>
+  <h2>2. Information We Collect</h2>
 
-<h2>5. Data retention</h2>
-<p>We keep your account and fitness data for as long as your account exists. When you delete your
-account (in-app: 我的 → 刪除帳戶, or by emailing us), your records are removed from our database
-immediately. Body-pose data from the camera is never retained — it exists only momentarily on your
-device during analysis. Crash and analytics data is retained by our providers for a limited period
-per their standard policies.</p>
+  <table>
+    <tr><th>Category</th><th>What we collect</th><th>How</th></tr>
+    <tr>
+      <td><strong>Account</strong></td>
+      <td>Email address; encrypted password (stored and managed by Supabase Auth)</td>
+      <td>You provide on sign-up</td>
+    </tr>
+    <tr>
+      <td><strong>Profile & body data</strong></td>
+      <td>Name, display nickname, age, gender, height, weight, body-fat %, skeletal muscle mass, target weight, fitness goal, experience level, weekly training frequency, activity level, preferred training time, focus body parts</td>
+      <td>You provide during onboarding and in Profile settings</td>
+    </tr>
+    <tr>
+      <td><strong>Workout & training data</strong></td>
+      <td>Exercises performed, sets, reps, weights, training session timestamps, rest intervals, superset / drop-set tags, training plans, cardio activity type / duration / heart rate / calories</td>
+      <td>You log during or after training sessions</td>
+    </tr>
+    <tr>
+      <td><strong>Nutrition & hydration data</strong></td>
+      <td>Meal entries (food name, portion, kcal, carbohydrates, protein, fat, fibre), daily calorie & macro targets, daily water intake (ml), water reminder settings</td>
+      <td>You log manually or via AI photo/text analysis</td>
+    </tr>
+    <tr>
+      <td><strong>Weight history</strong></td>
+      <td>Body-weight readings with timestamps</td>
+      <td>You log periodically</td>
+    </tr>
+    <tr>
+      <td><strong>Camera & body-pose data</strong></td>
+      <td>Live camera frames processed on-device in real time to estimate joint positions (body landmarks) for pose detection and rep counting. <strong>This data is never stored and never transmitted.</strong> Optionally you may record a workout video; this stays on your device unless you choose to share it.</td>
+      <td>Camera accessed only when you start an AI Coach session</td>
+    </tr>
+    <tr>
+      <td><strong>AI coaching & chat content</strong></td>
+      <td>Your chat messages to the AI coach; exercise data summaries (joint angles, rep counts, pose estimates) sent for form analysis; meal photos or text descriptions sent for food recognition; InBody report photos sent for body-composition parsing</td>
+      <td>Transmitted to our secure backend when you use AI features</td>
+    </tr>
+    <tr>
+      <td><strong>Apple Health data</strong></td>
+      <td>Today's step count and the latest heart-rate reading (read-only, from Apple HealthKit). We do not write any data to Apple Health.</td>
+      <td>Only if you grant HealthKit permission</td>
+    </tr>
+    <tr>
+      <td><strong>InBody scan data</strong></td>
+      <td>Photo of your InBody body-composition report. AI extracts weight, body-fat %, muscle mass, and test date. The photo is sent to our AI backend for processing and is not stored beyond the API call.</td>
+      <td>Only when you use the InBody Scan feature</td>
+    </tr>
+    <tr>
+      <td><strong>Usage analytics</strong></td>
+      <td>Screen views, feature interactions, sign-up and login events, session duration, collected via PostHog</td>
+      <td>Automatically while you use the app</td>
+    </tr>
+    <tr>
+      <td><strong>Crash & error reports</strong></td>
+      <td>Device model, OS version, error stack traces, collected via Sentry when the app encounters an error</td>
+      <td>Automatically on app crash or error</td>
+    </tr>
+    <tr>
+      <td><strong>Diagnostic & telemetry data</strong></td>
+      <td>App version, build number, platform, OS version, device model, locale, last-seen timestamp, AI-request latency and feature type (but not content), whether AI or offline fallback answered</td>
+      <td>Automatically at launch and during AI feature use</td>
+    </tr>
+    <tr>
+      <td><strong>Feedback</strong></td>
+      <td>Messages you voluntarily submit via the in-app feedback form</td>
+      <td>You provide when submitting feedback</td>
+    </tr>
+    <tr>
+      <td><strong>Peer-sharing data</strong></td>
+      <td>If you generate a share code, your workout history and progress may be visible to anyone who enters that code. You control this at all times.</td>
+      <td>Only if you generate and distribute a share code</td>
+    </tr>
+  </table>
 
-<h2>6. Hong Kong PDPO</h2>
-<p>We handle personal data in accordance with the Hong Kong Personal Data (Privacy) Ordinance (Cap. 486).
-You have the right to access and correct your personal data, and to request its deletion. Use the
-in-app account-deletion feature or contact us at the email below.</p>
+  <h2>3. How We Use Your Data</h2>
+  <ul>
+    <li>To provide, personalise, and improve app features (AI coaching, workout tracking, nutrition logging, plans, progress charts)</li>
+    <li>To sync your data securely across your devices</li>
+    <li>To calculate health estimates (BMI, TDEE, BMR, recommended protein) displayed within the app</li>
+    <li>To generate AI coaching responses and food/body-composition analysis via our backend</li>
+    <li>To understand how the app is used and improve it (analytics)</li>
+    <li>To detect, diagnose, and fix crashes and technical issues</li>
+    <li>To respond to support or data requests you send us</li>
+  </ul>
 
-<h2>7. Your rights</h2>
-<p>You can edit your profile in the app and sign out at any time. You can permanently delete your
-account and all associated data directly in the app: go to <strong>我的 (Profile) → 刪除帳戶 (Delete Account)</strong>.
-This immediately and irreversibly removes your account and all your records (profile, workouts,
-sessions, weight, nutrition, AI-coaching history, and diagnostics) from our database. You may also
-email us at the address below to request deletion.</p>
+  <h2>4. Data Sharing & Third-Party Processors</h2>
+  <p>We do not sell, rent, or trade your personal data. We share data only with the following service providers, each of whom processes data solely to provide their service:</p>
+  <table>
+    <tr><th>Provider</th><th>Purpose</th><th>Data shared</th></tr>
+    <tr><td><strong>Supabase</strong></td><td>Authentication, database, cloud storage</td><td>Account data, profile, all fitness/nutrition/coaching records</td></tr>
+    <tr><td><strong>AI Provider</strong> (via our secure proxy)</td><td>Generate coaching responses, food recognition, InBody parsing</td><td>Chat messages, exercise summaries, meal photos/text, InBody photos</td></tr>
+    <tr><td><strong>PostHog</strong></td><td>Usage analytics</td><td>Anonymised event data (no raw personal data fields)</td></tr>
+    <tr><td><strong>Sentry</strong></td><td>Crash reporting</td><td>Device info, OS version, error stack traces</td></tr>
+  </table>
+  <p>Our AI proxy server strips identifying information before forwarding requests to the AI provider. AI provider keys are stored server-side and are never shipped in the app binary.</p>
 
-<h2>8. Children</h2>
-<p>Spotter is not directed to children under 13 (or the minimum age in your region).</p>
+  <h2>5. Data Security</h2>
+  <ul>
+    <li>All network traffic is encrypted via HTTPS/TLS</li>
+    <li>Your account data in Supabase is protected by row-level security — only you can access your own records</li>
+    <li>Passwords are hashed by Supabase Auth and never stored in plain text</li>
+    <li>AI provider credentials are held server-side only</li>
+    <li>Camera and body-pose data never leaves your device</li>
+  </ul>
 
-<h2>9. Changes</h2>
-<p>We may update this policy and will revise the date above.</p>
+  <h2>6. Data Retention</h2>
+  <ul>
+    <li><strong>Account & fitness data:</strong> retained for as long as your account exists</li>
+    <li><strong>Body-pose / camera data:</strong> never retained — processed momentarily on-device only</li>
+    <li><strong>AI request content:</strong> not stored beyond the duration of the API call</li>
+    <li><strong>Analytics data:</strong> retained per PostHog's standard policy</li>
+    <li><strong>Crash reports:</strong> retained per Sentry's standard policy</li>
+    <li><strong>On account deletion:</strong> all your records (profile, workouts, sessions, weight, nutrition, water, coaching history, diagnostics) are removed from our database immediately and irreversibly</li>
+  </ul>
 
-<h2>10. Contact</h2>
-<p>Questions or data requests: <strong>support@spotterhk.com</strong></p>
+  <h2>7. Hong Kong PDPO — Your Rights</h2>
+  <p>Under the Personal Data (Privacy) Ordinance (Cap. 486), you have the right to:</p>
+  <ul>
+    <li><strong>Access</strong> your personal data held by us</li>
+    <li><strong>Correct</strong> any inaccurate personal data</li>
+    <li><strong>Request deletion</strong> of your personal data</li>
+    <li><strong>Object</strong> to processing in certain circumstances</li>
+  </ul>
+  <p>To exercise these rights, use the in-app features (Profile → Edit Profile; 我的 → 刪除帳戶) or contact us at <strong>support@spotterhk.com</strong>. We will respond within 40 days as required by the PDPO.</p>
+
+  <div class="note">🗑️ <strong>Account deletion:</strong> Go to <strong>我的 (Profile) → 刪除帳戶 (Delete Account)</strong> in the app. Type "刪除" to confirm. This immediately and irreversibly removes your account and all associated data from our servers.</div>
+
+  <h2>8. Apple HealthKit</h2>
+  <p>If you grant permission, Spotter reads step count and heart-rate data from Apple HealthKit. This data is displayed on your home screen only. It is not uploaded to our servers, shared with third parties, or used for advertising. We do not write any data back to HealthKit. You can revoke this permission at any time in iPhone Settings → Privacy & Security → Health → Spotter.</p>
+
+  <h2>9. Children</h2>
+  <p>Spotter is not directed to children under 13 (or the minimum age in your jurisdiction). We do not knowingly collect personal data from children under 13. If you believe a child has provided us with personal data, please contact us and we will delete it promptly.</p>
+
+  <h2>10. Changes to This Policy</h2>
+  <p>We may update this policy from time to time. We will revise the "Last updated" date above. Continued use of the app after changes are posted constitutes acceptance of the updated policy.</p>
+
+  <h2>11. Contact</h2>
+  <p>For privacy enquiries, data access or correction requests, or account deletion assistance:</p>
+  <p><strong>Email:</strong> <a href="mailto:support@spotterhk.com">support@spotterhk.com</a><br>
+  <strong>Website:</strong> <a href="https://spotterhk.com">spotterhk.com</a></p>
+</div>
+
+<footer>
+  <span>© 2026 Spotter. All rights reserved.</span>
+  <div style="display:flex;gap:24px">
+    <a href="/">Home</a>
+    <a href="/guide.html">Guide</a>
+    <a href="/terms.html">Terms & EULA</a>
+    <a href="mailto:support@spotterhk.com">support@spotterhk.com</a>
+  </div>
+</footer>
+
 </body>
 </html>
