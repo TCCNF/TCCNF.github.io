@@ -84,13 +84,13 @@
       <td>You log periodically</td>
     </tr>
     <tr>
-      <td><strong>Camera & body-pose data</strong></td>
-      <td>Live camera frames processed on-device in real time to estimate joint positions (body landmarks) for pose detection and rep counting. <strong>This data is never stored and never transmitted.</strong> Optionally you may record a workout video; this stays on your device unless you choose to share it.</td>
-      <td>Camera accessed only when you start an AI Coach session</td>
+      <td><strong>Camera & workout video data</strong></td>
+      <td>When you use the AI Form Coach, you record or select a short training video (up to 60 seconds). A small number of still frames are extracted from that video and sent to our secure backend, then forwarded to our AI provider to generate form-analysis feedback. <strong>The original video file itself is not uploaded</strong> — it stays on your device unless you choose to share it. Extracted frames are used only to generate that single analysis response and are not stored by us afterwards.</td>
+      <td>Camera/photo-library accessed only when you use the AI Form Coach</td>
     </tr>
     <tr>
       <td><strong>AI coaching & chat content</strong></td>
-      <td>Your chat messages to the AI coach; exercise data summaries (joint angles, rep counts, pose estimates) sent for form analysis; meal photos or text descriptions sent for food recognition; InBody report photos sent for body-composition parsing</td>
+      <td>Your chat messages to the AI coach; still frames extracted from workout videos (see above) sent for form analysis; meal photos or text descriptions sent for food recognition; InBody report photos sent for body-composition parsing</td>
       <td>Transmitted to our secure backend when you use AI features</td>
     </tr>
     <tr>
@@ -165,13 +165,13 @@
     <li>Your account data in Supabase is protected by row-level security — only you can access your own records</li>
     <li>Passwords are hashed by Supabase Auth and never stored in plain text</li>
     <li>AI provider credentials are held server-side only</li>
-    <li>Camera and body-pose data never leaves your device</li>
+    <li>The original workout video file is never uploaded — only a small number of extracted still frames are sent, and only when you use the AI Form Coach</li>
   </ul>
 
   <h2>6. Data Retention</h2>
   <ul>
     <li><strong>Account & fitness data:</strong> retained for as long as your account exists</li>
-    <li><strong>Body-pose / camera data:</strong> never retained — processed momentarily on-device only</li>
+    <li><strong>Workout video frames:</strong> transmitted for AI form analysis and not stored by us beyond generating that response</li>
     <li><strong>AI request content:</strong> not stored beyond the duration of the API call</li>
     <li><strong>Analytics data:</strong> retained per PostHog's standard policy</li>
     <li><strong>Crash reports:</strong> retained per Sentry's standard policy</li>
