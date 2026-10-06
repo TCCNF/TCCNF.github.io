@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["C3BN28YPYH.com.tccnf.tripkap"],
+        "components": [
+          { "/": "/tripkap/j/*", "comment": "TripKap invite links" }
+        ]
+      }
+    ]
+  }
+}

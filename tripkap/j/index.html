@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>TripKap invite</title>
+<style>
+  :root{color-scheme:light dark;--bg:#f5f6f8;--card:#fff;--text:#1c1c1e;--muted:#6b6f76;--accent:#0a84ff;--border:#e3e5e9}
+  @media (prefers-color-scheme:dark){:root{--bg:#0e0f11;--card:#1a1b1e;--text:#f2f3f5;--muted:#9a9ea6;--accent:#4da3ff;--border:#2a2c31}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+  main{width:100%;max-width:440px;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px 24px;text-align:center}
+  .logo{font-size:44px;line-height:1;margin-bottom:12px}
+  h1{font-size:22px;margin-bottom:6px}
+  .lead{color:var(--muted);font-size:15px;margin-bottom:24px}
+  .code{font:700 28px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:2px;padding:14px 12px;border:1px dashed var(--border);border-radius:12px;margin-bottom:12px;word-break:break-all}
+  .btn{display:block;width:100%;border:0;border-radius:12px;padding:14px;font-size:17px;font-weight:600;text-decoration:none;cursor:pointer;margin-top:10px}
+  .primary{background:var(--accent);color:#fff}
+  .secondary{background:transparent;color:var(--accent);border:1px solid var(--border)}
+  .steps{text-align:left;margin:24px 0 0;padding-left:20px;color:var(--muted);font-size:14px}
+  .steps li{margin-bottom:4px}
+  .zh{margin-top:20px;padding-top:20px;border-top:1px solid var(--border)}
+  .small{color:var(--muted);font-size:12px;margin-top:20px}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main>
+  <div class="logo" aria-hidden="true">🧳</div>
+  <h1>You're invited to a trip on TripKap</h1>
+  <p class="lead">TripKap splits trip costs between friends. Join to add expenses and see who owes whom.</p>
+
+  <div id="codeBox" hidden>
+    <div class="code" id="code"></div>
+    <a class="btn primary" id="open" href="#">Open in TripKap</a>
+    <button class="btn secondary" id="copy" type="button">Copy code</button>
+    <ol class="steps">
+      <li>Open <strong>TripKap</strong> on your iPhone.</li>
+      <li>Tap <strong>Join a Trip</strong> (the person icon) and paste the code.</li>
+      <li>Pick your name from the list.</li>
+    </ol>
+  </div>
+  <p id="noCode" class="lead" hidden>This invite link is incomplete. Ask your friend to send it again.</p>
+
+  <div class="zh" lang="zh-Hant">
+    <h1>你獲邀加入 TripKap 旅程</h1>
+    <p class="lead">打開 TripKap，撳「加入旅程」（人像圖示），貼上上面的邀請碼，再揀返你嘅名字就得。</p>
+  </div>
+  <p class="small">TripKap · iPhone · The code only works for the trip it was made for.</p>
+</main>
+<script>
+(function () {
+  var raw = new URLSearchParams(location.search).get("c") || "";
+  var code = raw.toUpperCase().replace(/[^A-Z0-9]/g, "");
+  if (code.length < 6 || code.length > 20) { document.getElementById("noCode").hidden = false; return; }
+  document.getElementById("codeBox").hidden = false;
+  document.getElementById("code").textContent = code;
+  document.getElementById("open").href = "tripkap://join/" + code;
+  document.getElementById("copy").addEventListener("click", function () {
+    var button = this;
+    var done = function () { button.textContent = "Copied"; };
+    if (navigator.clipboard) { navigator.clipboard.writeText(code).then(done, function () {}); }
+  });
+})();
+</script>
+</body>
+</html>
