@@ -31,6 +31,7 @@ td a{color:var(--text)}td a:hover{color:var(--accent)}
 .cta{background:linear-gradient(135deg,#2a130b,#141414);border:1px solid #3a2015;border-radius:20px;padding:24px;margin-top:40px}
 .cta h2{margin-top:0}
 .cta a.get{display:inline-block;margin-top:14px;padding:12px 22px;font-size:16px}
+.avg{background:#1f1608;border:1px solid #4a3310;border-radius:14px;padding:14px 16px;font-size:15px}
 .note{font-size:13px;color:var(--muted);margin-top:28px}
 .cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:18px 0}
 .cats a{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px}
