@@ -34,7 +34,7 @@ q.addEventListener('input',()=>{const v=q.value.trim().toLowerCase();if(!v){r.in
 const m=F.filter(f=>f.n.toLowerCase().includes(v)||f.e.includes(v)).slice(0,30);
 r.innerHTML=m.length?'<table><tbody>'+m.map(f=>`<tr><td><a href="/food/${f.s}.html">${f.n}</a></td><td>${f.u}</td><td class="n">${f.k} 大卡</td></tr>`).join('')+'</tbody></table>':'<p class="lede">找不到這項食物。Spotter App 可以用 AI 直接估算。</p>'});
 </script>
-<p class="note">數值為一般份量的估算，實際會因店舖、份量和做法而有差異，只供參考，並非醫療或營養建議。資料與 Spotter App 內置食物資料庫一致，參考香港食物安全中心營養資料查詢及 USDA FoodData Central。最後更新：2026-11-01</p>
+<p class="note">數值為一般份量的估算，實際會因店舖、份量和做法而有差異，只供參考，並非醫療或營養建議。資料與 Spotter App 內置食物資料庫一致，參考香港食物安全中心營養資料查詢及 USDA FoodData Central。最後更新：2026-11-11</p>
 </main>
 <footer><a href="/food/">食物卡路里表</a><a href="/guide.html">使用指南</a><a href="/privacy.html">私隱政策</a><a href="/terms.html">條款</a></footer>
 </body>
