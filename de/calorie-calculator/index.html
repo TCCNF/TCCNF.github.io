@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kalorienrechner: Grundumsatz und Gesamtumsatz (TDEE) berechnen</title>
+<meta name="description" content="Kostenloser Kalorienrechner für Grundumsatz und Gesamtumsatz. Geschlecht, Alter, Größe, Gewicht und Aktivität eingeben und den täglichen Kalorien- und Eiweißbedarf zum Abnehmen, Halten oder Muskelaufbau sehen.">
+<link rel="canonical" href="https://spotterhk.com/de/calorie-calculator/">
+<link rel="alternate" hreflang="zh-Hant" href="https://spotterhk.com/calorie-calculator/">
+<link rel="alternate" hreflang="en" href="https://spotterhk.com/en/calorie-calculator/">
+<link rel="alternate" hreflang="es" href="https://spotterhk.com/es/calorie-calculator/">
+<link rel="alternate" hreflang="de" href="https://spotterhk.com/de/calorie-calculator/">
+<link rel="alternate" hreflang="x-default" href="https://spotterhk.com/en/calorie-calculator/">
+<meta property="og:title" content="Kalorienrechner: Grundumsatz und Gesamtumsatz (TDEE) berechnen">
+<meta property="og:description" content="Kostenloser Kalorienrechner für Grundumsatz und Gesamtumsatz. Geschlecht, Alter, Größe, Gewicht und Aktivität eingeben und den täglichen Kalorien- und Eiweißbedarf zum Abnehmen, Halten oder Muskelaufbau sehen.">
+<meta property="og:url" content="https://spotterhk.com/de/calorie-calculator/">
+<meta property="og:type" content="article">
+<meta name="apple-itunes-app" content="app-id=6780713476">
+<link rel="stylesheet" href="/food/food.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Was sind Grundumsatz und Gesamtumsatz?", "acceptedAnswer": {"@type": "Answer", "text": "Der Grundumsatz ist die Energie, die dein Körper in völliger Ruhe für Herzschlag, Atmung und Körpertemperatur braucht. Der Gesamtumsatz (TDEE) ist der Grundumsatz plus alles, was du durch Bewegung und Sport verbrennst: die Kalorien, die du an einem Tag wirklich verbrauchst. Isst du etwa deinen Gesamtumsatz, bleibt dein Gewicht gleich; isst du weniger, nimmst du ab; isst du mehr, nimmst du zu."}}, {"@type": "Question", "name": "Welche Formel wird verwendet?", "acceptedAnswer": {"@type": "Answer", "text": "Standardmäßig die Mifflin-St-Jeor-Formel, die am häufigsten verwendet wird und meist am genauesten ist. Gibst du deinen Körperfettanteil ein, rechnet der Rechner mit Katch-McArdle, die von der fettfreien Masse ausgeht und für Menschen mit mehr Muskeln besser passt."}}, {"@type": "Question", "name": "Wie groß sollte das Defizit zum Abnehmen sein?", "acceptedAnswer": {"@type": "Answer", "text": "Beginne mit 300–500 kcal unter dem Gesamtumsatz; diese Seite rechnet mit 400 kcal, etwa 0,4 kg pro Woche. Größere Defizite kosten Muskeln und sind schwer durchzuhalten. Genug Eiweiß (etwa 1,6–2,2 g pro kg Körpergewicht) und weiter Krafttraining helfen, Muskeln zu halten."}}, {"@type": "Question", "name": "Wie viel mehr zum Muskelaufbau?", "acceptedAnswer": {"@type": "Answer", "text": "Etwa 200–300 kcal über dem Gesamtumsatz, mit progressivem Krafttraining. Ein größerer Überschuss bringt vor allem Fett. Etwa 0,5–1 kg Zunahme pro Monat ist ein vernünftiges Tempo."}}, {"@type": "Question", "name": "Wie genau ist das?", "acceptedAnswer": {"@type": "Answer", "text": "Jede Formel ist eine Schätzung; Menschen weichen um 10–20 % ab. Halte das Ziel zwei bis drei Wochen ein, beobachte dein Gewicht und passe dann in Schritten von 100–200 kcal an. Diese Seite dient nur der Information und ersetzt keine medizinische oder Ernährungsberatung."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Kalorienrechner: Wie viele Kalorien brauchst du?", "applicationCategory": "HealthApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "HKD"}}</script>
+</head>
+<body>
+<nav><a class="logo" href="/de/">🏋️ Spotter</a><div class="navr"><span class="langs"><a href="/calorie-calculator/" hreflang="zh-Hant">中文</a><a href="/en/calorie-calculator/" hreflang="en">EN</a><a href="/es/calorie-calculator/" hreflang="es">ES</a><b>DE</b></span><a class="get" href="https://apps.apple.com/app/spotter/id6780713476">Gratis-App</a></div></nav>
+<main>
+<style>
+.calc{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;margin:20px 0}
+.calc label{display:block;font-size:14px;color:var(--muted);margin:12px 0 6px}
+.calc input,.calc select{width:100%;font:inherit;font-size:16px;color:var(--text);background:#0d0d0d;border:1px solid var(--border);border-radius:10px;padding:10px 12px}
+.calc .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.calc .seg{display:flex;gap:6px;flex-wrap:wrap}
+.calc .seg label{margin:0;flex:1 1 0;min-width:0}
+.calc .seg input{position:absolute;opacity:0;width:1px;height:1px}
+.calc .seg span{display:block;text-align:center;padding:9px 6px;border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:15px}
+.calc .seg input:checked+span{border-color:var(--accent);background:rgba(255,107,53,.14);color:var(--accent);font-weight:600}
+.calc .seg input:focus-visible+span{outline:2px solid var(--accent)}
+.calc small{display:block;color:var(--muted);font-size:12px;margin-top:4px}
+.calc .ft{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.res div{background:#0d0d0d;border:1px solid var(--border);border-radius:12px;padding:12px}
+.res b{display:block;font-size:24px;color:var(--text)}
+.res .main{grid-column:1/-1;border-color:var(--accent)}
+.res .main b{font-size:34px;color:var(--accent)}
+.res span{font-size:13px;color:var(--muted)}
+#cnote,#cwarn,#cform{font-size:14px;color:var(--muted);margin-top:10px}
+#cwarn{color:#ffb020}
+</style><h1>Kalorienrechner: Wie viele Kalorien brauchst du?</h1><p class="lede">Gib deine Daten ein und sieh deinen Grundumsatz, deinen täglichen Gesamtumsatz (TDEE) und wie viele Kalorien und wie viel Eiweiß du zum Abnehmen, Halten oder Muskelaufbau essen solltest. Alles wird in deinem Browser berechnet; es werden keine Daten gesendet.</p><div class="calc" id="calc">
+<label>Einheiten</label>
+<div class="seg"><label><input type="radio" name="u" value="m" checked><span>Metrisch (cm / kg)</span></label><label><input type="radio" name="u" value="i"><span>Imperial (ft·in / lb)</span></label></div>
+<label>Geschlecht</label>
+<div class="seg"><label><input type="radio" name="s" value="m" checked><span>Mann</span></label><label><input type="radio" name="s" value="f"><span>Frau</span></label></div>
+<div class="row">
+<div><label for="age">Alter</label><input id="age" type="number" inputmode="numeric" min="15" max="90" placeholder="30"></div>
+<div id="hm"><label for="h">Größe (cm)</label><input id="h" type="number" inputmode="decimal" min="120" max="230" placeholder="170"></div>
+<div id="hi" hidden><label>Größe (ft / in)</label><div class="ft"><input id="hf" type="number" inputmode="numeric" min="4" max="7" placeholder="5"><input id="hn" type="number" inputmode="decimal" min="0" max="11" placeholder="7"></div></div>
+</div>
+<div class="row">
+<div><label for="w" id="wl">Gewicht (kg)</label><input id="w" type="number" inputmode="decimal" min="30" max="300" placeholder="65"></div>
+<div><label for="bf">Körperfett % (optional)</label><input id="bf" type="number" inputmode="decimal" min="3" max="60" placeholder="—"></div>
+</div>
+<small>Genauer, wenn du ihn kennst (z. B. von einer Körperanalysewaage)</small>
+<label for="act">Aktivität</label>
+<select id="act"><option value="1.2">Kaum aktiv: Bürojob, kein Sport</option><option value="1.375">Leicht aktiv: Sport an 1–3 Tagen pro Woche</option><option value="1.55" selected>Mäßig aktiv: Sport an 3–5 Tagen pro Woche</option><option value="1.725">Sehr aktiv: Sport an 6–7 Tagen pro Woche</option><option value="1.9">Extrem aktiv: tägliches Training oder körperliche Arbeit</option></select>
+<label>Ziel</label>
+<div class="seg"><label><input type="radio" name="g" value="0" checked><span>Fett abbauen</span></label><label><input type="radio" name="g" value="1"><span>Gewicht halten</span></label><label><input type="radio" name="g" value="2"><span>Muskeln aufbauen</span></label></div>
+<div class="res" aria-live="polite">
+<div class="main"><span>Tägliches Kalorienziel</span><b id="rg">—</b><span>kcal/Tag</span></div>
+<div><span>Gesamtumsatz (TDEE)</span><b id="rt">—</b><span>kcal/Tag</span></div>
+<div><span>Grundumsatz</span><b id="rb">—</b><span>kcal/Tag</span></div>
+<div class="main" style="border-color:var(--border)"><span>Eiweißziel</span><b id="rp" style="color:var(--text);font-size:24px">—</b><span>g/Tag</span></div>
+</div>
+<p id="cnote">Bitte Alter, Größe und Gewicht eingeben.</p><p id="cwarn" hidden></p><p id="cform"></p>
+</div><h2>Wenn du dein Ziel kennst</h2><p>Der nächste Schritt ist zu wissen, was du isst. In den <a href="/de/food/">Kalorientabellen</a> findest du Kalorien und Makronährstoffe für 1.828 Lebensmittel, von Brezel und Currywurst bis zu asiatischen Gerichten. In der Spotter-App fotografierst du dein Essen und die KI schätzt die Kalorien gegenüber deinem Tagesziel.</p><h2>Was sind Grundumsatz und Gesamtumsatz?</h2><p>Der Grundumsatz ist die Energie, die dein Körper in völliger Ruhe für Herzschlag, Atmung und Körpertemperatur braucht. Der Gesamtumsatz (TDEE) ist der Grundumsatz plus alles, was du durch Bewegung und Sport verbrennst: die Kalorien, die du an einem Tag wirklich verbrauchst. Isst du etwa deinen Gesamtumsatz, bleibt dein Gewicht gleich; isst du weniger, nimmst du ab; isst du mehr, nimmst du zu.</p><h2>Welche Formel wird verwendet?</h2><p>Standardmäßig die Mifflin-St-Jeor-Formel, die am häufigsten verwendet wird und meist am genauesten ist. Gibst du deinen Körperfettanteil ein, rechnet der Rechner mit Katch-McArdle, die von der fettfreien Masse ausgeht und für Menschen mit mehr Muskeln besser passt.</p><h2>Wie groß sollte das Defizit zum Abnehmen sein?</h2><p>Beginne mit 300–500 kcal unter dem Gesamtumsatz; diese Seite rechnet mit 400 kcal, etwa 0,4 kg pro Woche. Größere Defizite kosten Muskeln und sind schwer durchzuhalten. Genug Eiweiß (etwa 1,6–2,2 g pro kg Körpergewicht) und weiter Krafttraining helfen, Muskeln zu halten.</p><h2>Wie viel mehr zum Muskelaufbau?</h2><p>Etwa 200–300 kcal über dem Gesamtumsatz, mit progressivem Krafttraining. Ein größerer Überschuss bringt vor allem Fett. Etwa 0,5–1 kg Zunahme pro Monat ist ein vernünftiges Tempo.</p><h2>Wie genau ist das?</h2><p>Jede Formel ist eine Schätzung; Menschen weichen um 10–20 % ab. Halte das Ziel zwei bis drei Wochen ein, beobachte dein Gewicht und passe dann in Schritten von 100–200 kcal an. Diese Seite dient nur der Information und ersetzt keine medizinische oder Ernährungsberatung.</p><div class="cta">
+<h2>Kein Nachschlagen: einfach ein Foto machen</h2>
+<p>Die KI von Spotter schätzt Kalorien und Nährwerte einer ganzen Mahlzeit anhand eines Fotos oder weniger Worte, etwa „Hähnchen mit Reis, wenig Reis“. Außerdem erfasst du Training, Körpergewicht und Wasser. Kostenlos.</p>
+<a class="get" href="https://apps.apple.com/app/spotter/id6780713476">Kostenlos im App Store laden</a>
+</div><script>
+(()=>{const T={"goals": ["Fett abbauen", "Gewicht halten", "Muskeln aufbauen"], "d": ["400 kcal unter dem Gesamtumsatz, etwa 0,4 kg pro Woche", "gleich dem Gesamtumsatz", "300 kcal über dem Gesamtumsatz, mit Krafttraining"], "r_note": "{g}: {d}.", "low": "Hinweis: Das ist ein niedriges Ziel. Sprich mit einer Ärztin, einem Arzt oder einer Ernährungsfachkraft, bevor du länger unter {m} kcal pro Tag isst.", "formula": "Formel: Mifflin-St Jeor", "formula_bf": "Formel: Katch-McArdle (mit Körperfett)", "fill": "Bitte Alter, Größe und Gewicht eingeben."},G=[-400, 0, 300],$=i=>document.getElementById(i),
+nf=new Intl.NumberFormat("de-DE"),val=n=>document.querySelector(`input[name="${n}"]:checked`).value,num=i=>parseFloat($(i).value);
+function units(){const imp=val("u")=="i";$("hm").hidden=imp;$("hi").hidden=!imp;$("wl").textContent=$("wl").textContent.replace(/\((kg|lb)\)/,imp?"(lb)":"(kg)")}
+function calc(){const imp=val("u")=="i",a=num("age");let h=imp?(num("hf")*12+(num("hn")||0))*2.54:num("h"),w=num("w");if(imp)w*=0.45359237;
+const bf=num("bf"),ok=a>=15&&a<=90&&h>=120&&h<=230&&w>=30&&w<=300;
+if(!ok){["rg","rt","rb","rp"].forEach(i=>$(i).textContent="—");$("cnote").textContent=T.fill;$("cwarn").hidden=true;$("cform").textContent="";return}
+const fem=val("s")=="f",useBf=bf>=3&&bf<=60,lbm=useBf?w*(1-bf/100):0;
+const bmr=useBf?370+21.6*lbm:10*w+6.25*h-5*a+(fem?-161:5),tdee=bmr*parseFloat($("act").value),g=+val("g"),goal=tdee+G[g];
+const pro=useBf?lbm*2.2:w*1.8,r=x=>nf.format(Math.round(x/10)*10);
+$("rb").textContent=r(bmr);$("rt").textContent=r(tdee);$("rg").textContent=r(goal);$("rp").textContent=nf.format(Math.round(pro));
+$("cnote").textContent=T.r_note.replace("{g}",T.goals[g]).replace("{d}",T.d[g]);
+const m=fem?1200:1500;$("cwarn").hidden=goal>=m;$("cwarn").textContent=T.low.replace("{m}",nf.format(m));
+$("cform").textContent=useBf?T.formula_bf:T.formula}
+document.querySelectorAll("#calc input,#calc select").forEach(x=>x.addEventListener("input",()=>{if(x.name=="u")units();calc()}));
+document.querySelectorAll('#calc input[type=radio]').forEach(x=>x.addEventListener("change",()=>{if(x.name=="u")units();calc()}));units();calc()})();
+</script>
+<p class="note">Die Werte sind Schätzungen für eine übliche Portion und hängen von Restaurant, Portionsgröße und Zubereitung ab. Nur zur Orientierung, keine medizinische oder Ernährungsberatung. Die Daten entsprechen der Lebensmitteldatenbank der Spotter-App und stützen sich auf die Nährwertdatenbank des Centre for Food Safety Hongkong und USDA FoodData Central. Zuletzt aktualisiert: 2026-11-11</p>
+</main>
+<footer><a href="/de/food/">Kalorientabelle</a><a href="/de/calorie-calculator/">Kalorienrechner</a><a href="/privacy.html">Datenschutz</a><a href="/terms.html">Nutzungsbedingungen</a></footer>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de calorías: TDEE y metabolismo basal (TMB)</title>
+<meta name="description" content="Calculadora gratuita de TDEE y metabolismo basal. Introduce sexo, edad, altura, peso y actividad para conocer tus calorías diarias y la proteína para perder grasa, mantener o ganar músculo.">
+<link rel="canonical" href="https://spotterhk.com/es/calorie-calculator/">
+<link rel="alternate" hreflang="zh-Hant" href="https://spotterhk.com/calorie-calculator/">
+<link rel="alternate" hreflang="en" href="https://spotterhk.com/en/calorie-calculator/">
+<link rel="alternate" hreflang="es" href="https://spotterhk.com/es/calorie-calculator/">
+<link rel="alternate" hreflang="de" href="https://spotterhk.com/de/calorie-calculator/">
+<link rel="alternate" hreflang="x-default" href="https://spotterhk.com/en/calorie-calculator/">
+<meta property="og:title" content="Calculadora de calorías: TDEE y metabolismo basal (TMB)">
+<meta property="og:description" content="Calculadora gratuita de TDEE y metabolismo basal. Introduce sexo, edad, altura, peso y actividad para conocer tus calorías diarias y la proteína para perder grasa, mantener o ganar músculo.">
+<meta property="og:url" content="https://spotterhk.com/es/calorie-calculator/">
+<meta property="og:type" content="article">
+<meta name="apple-itunes-app" content="app-id=6780713476">
+<link rel="stylesheet" href="/food/food.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué son el metabolismo basal y el TDEE?", "acceptedAnswer": {"@type": "Answer", "text": "El metabolismo basal (TMB) es la energía que tu cuerpo usa en reposo total para mantener el corazón, la respiración y la temperatura. El gasto energético diario total (TDEE) es el TMB más todo lo que quemas al moverte y entrenar: las calorías que realmente gastas en un día. Si comes tu TDEE, tu peso se mantiene; si comes menos, bajas; si comes más, subes."}}, {"@type": "Question", "name": "¿Qué fórmula se usa?", "acceptedAnswer": {"@type": "Answer", "text": "Por defecto, la ecuación de Mifflin-St Jeor, la más utilizada y en general la más precisa. Si introduces tu porcentaje de grasa corporal, la calculadora usa Katch-McArdle, que parte de la masa magra y es más adecuada para personas con más músculo."}}, {"@type": "Question", "name": "¿Cuánto déficit para perder grasa?", "acceptedAnswer": {"@type": "Answer", "text": "Empieza con 300–500 kcal por debajo del TDEE; esta página usa 400 kcal, unos 0,4 kg por semana. Déficits mayores hacen perder músculo y son difíciles de mantener. Tomar suficiente proteína (unos 1,6–2,2 g por kg de peso) y seguir con el entrenamiento de fuerza ayuda a conservar el músculo."}}, {"@type": "Question", "name": "¿Cuánto comer de más para ganar músculo?", "acceptedAnswer": {"@type": "Answer", "text": "Unas 200–300 kcal por encima del TDEE, con entrenamiento de fuerza progresivo. Un superávit mayor añade sobre todo grasa. Ganar unos 0,5–1 kg al mes es un ritmo razonable."}}, {"@type": "Question", "name": "¿Qué precisión tiene?", "acceptedAnswer": {"@type": "Answer", "text": "Toda fórmula es una estimación y las personas varían un 10–20 %. Sigue el objetivo dos o tres semanas, controla tu peso y ajusta 100–200 kcal cada vez. Esta página es solo informativa y no es consejo médico ni dietético."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Calculadora de calorías: ¿cuántas calorías necesitas?", "applicationCategory": "HealthApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "HKD"}}</script>
+</head>
+<body>
+<nav><a class="logo" href="/es/">🏋️ Spotter</a><div class="navr"><span class="langs"><a href="/calorie-calculator/" hreflang="zh-Hant">中文</a><a href="/en/calorie-calculator/" hreflang="en">EN</a><b>ES</b><a href="/de/calorie-calculator/" hreflang="de">DE</a></span><a class="get" href="https://apps.apple.com/app/spotter/id6780713476">App gratis</a></div></nav>
+<main>
+<style>
+.calc{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;margin:20px 0}
+.calc label{display:block;font-size:14px;color:var(--muted);margin:12px 0 6px}
+.calc input,.calc select{width:100%;font:inherit;font-size:16px;color:var(--text);background:#0d0d0d;border:1px solid var(--border);border-radius:10px;padding:10px 12px}
+.calc .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.calc .seg{display:flex;gap:6px;flex-wrap:wrap}
+.calc .seg label{margin:0;flex:1 1 0;min-width:0}
+.calc .seg input{position:absolute;opacity:0;width:1px;height:1px}
+.calc .seg span{display:block;text-align:center;padding:9px 6px;border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:15px}
+.calc .seg input:checked+span{border-color:var(--accent);background:rgba(255,107,53,.14);color:var(--accent);font-weight:600}
+.calc .seg input:focus-visible+span{outline:2px solid var(--accent)}
+.calc small{display:block;color:var(--muted);font-size:12px;margin-top:4px}
+.calc .ft{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.res div{background:#0d0d0d;border:1px solid var(--border);border-radius:12px;padding:12px}
+.res b{display:block;font-size:24px;color:var(--text)}
+.res .main{grid-column:1/-1;border-color:var(--accent)}
+.res .main b{font-size:34px;color:var(--accent)}
+.res span{font-size:13px;color:var(--muted)}
+#cnote,#cwarn,#cform{font-size:14px;color:var(--muted);margin-top:10px}
+#cwarn{color:#ffb020}
+</style><h1>Calculadora de calorías: ¿cuántas calorías necesitas?</h1><p class="lede">Introduce tus datos para ver tu metabolismo basal (TMB), tu gasto energético diario total (TDEE) y cuántas calorías y proteína tomar para perder grasa, mantener o ganar músculo. Todo se calcula en tu navegador; no se envía ningún dato.</p><div class="calc" id="calc">
+<label>Unidades</label>
+<div class="seg"><label><input type="radio" name="u" value="m" checked><span>Métrico (cm / kg)</span></label><label><input type="radio" name="u" value="i"><span>Imperial (ft·in / lb)</span></label></div>
+<label>Sexo</label>
+<div class="seg"><label><input type="radio" name="s" value="m" checked><span>Hombre</span></label><label><input type="radio" name="s" value="f"><span>Mujer</span></label></div>
+<div class="row">
+<div><label for="age">Edad</label><input id="age" type="number" inputmode="numeric" min="15" max="90" placeholder="30"></div>
+<div id="hm"><label for="h">Altura (cm)</label><input id="h" type="number" inputmode="decimal" min="120" max="230" placeholder="170"></div>
+<div id="hi" hidden><label>Altura (ft / in)</label><div class="ft"><input id="hf" type="number" inputmode="numeric" min="4" max="7" placeholder="5"><input id="hn" type="number" inputmode="decimal" min="0" max="11" placeholder="7"></div></div>
+</div>
+<div class="row">
+<div><label for="w" id="wl">Peso (kg)</label><input id="w" type="number" inputmode="decimal" min="30" max="300" placeholder="65"></div>
+<div><label for="bf">Grasa corporal % (opcional)</label><input id="bf" type="number" inputmode="decimal" min="3" max="60" placeholder="—"></div>
+</div>
+<small>Más preciso si lo conoces (por ejemplo, de una báscula de bioimpedancia)</small>
+<label for="act">Actividad</label>
+<select id="act"><option value="1.2">Sedentario: trabajo de oficina, sin ejercicio</option><option value="1.375">Ligera: ejercicio 1–3 días por semana</option><option value="1.55" selected>Moderada: ejercicio 3–5 días por semana</option><option value="1.725">Alta: ejercicio 6–7 días por semana</option><option value="1.9">Muy alta: entrenamiento diario o trabajo físico</option></select>
+<label>Objetivo</label>
+<div class="seg"><label><input type="radio" name="g" value="0" checked><span>Perder grasa</span></label><label><input type="radio" name="g" value="1"><span>Mantener</span></label><label><input type="radio" name="g" value="2"><span>Ganar músculo</span></label></div>
+<div class="res" aria-live="polite">
+<div class="main"><span>Calorías diarias objetivo</span><b id="rg">—</b><span>kcal/día</span></div>
+<div><span>Gasto diario (TDEE)</span><b id="rt">—</b><span>kcal/día</span></div>
+<div><span>Metabolismo basal (TMB)</span><b id="rb">—</b><span>kcal/día</span></div>
+<div class="main" style="border-color:var(--border)"><span>Proteína objetivo</span><b id="rp" style="color:var(--text);font-size:24px">—</b><span>g/día</span></div>
+</div>
+<p id="cnote">Introduce tu edad, altura y peso.</p><p id="cwarn" hidden></p><p id="cform"></p>
+</div><h2>Cuando conozcas tu objetivo</h2><p>El siguiente paso es saber lo que comes. Consulta las <a href="/es/food/">tablas de calorías</a>: calorías y macronutrientes de 1.828 alimentos, de tapas y platos europeos a comida asiática. En la app Spotter, haz una foto de tu comida y la IA estima sus calorías frente a tu objetivo diario.</p><h2>¿Qué son el metabolismo basal y el TDEE?</h2><p>El metabolismo basal (TMB) es la energía que tu cuerpo usa en reposo total para mantener el corazón, la respiración y la temperatura. El gasto energético diario total (TDEE) es el TMB más todo lo que quemas al moverte y entrenar: las calorías que realmente gastas en un día. Si comes tu TDEE, tu peso se mantiene; si comes menos, bajas; si comes más, subes.</p><h2>¿Qué fórmula se usa?</h2><p>Por defecto, la ecuación de Mifflin-St Jeor, la más utilizada y en general la más precisa. Si introduces tu porcentaje de grasa corporal, la calculadora usa Katch-McArdle, que parte de la masa magra y es más adecuada para personas con más músculo.</p><h2>¿Cuánto déficit para perder grasa?</h2><p>Empieza con 300–500 kcal por debajo del TDEE; esta página usa 400 kcal, unos 0,4 kg por semana. Déficits mayores hacen perder músculo y son difíciles de mantener. Tomar suficiente proteína (unos 1,6–2,2 g por kg de peso) y seguir con el entrenamiento de fuerza ayuda a conservar el músculo.</p><h2>¿Cuánto comer de más para ganar músculo?</h2><p>Unas 200–300 kcal por encima del TDEE, con entrenamiento de fuerza progresivo. Un superávit mayor añade sobre todo grasa. Ganar unos 0,5–1 kg al mes es un ritmo razonable.</p><h2>¿Qué precisión tiene?</h2><p>Toda fórmula es una estimación y las personas varían un 10–20 %. Sigue el objetivo dos o tres semanas, controla tu peso y ajusta 100–200 kcal cada vez. Esta página es solo informativa y no es consejo médico ni dietético.</p><div class="cta">
+<h2>Sin buscar: haz una foto</h2>
+<p>La IA de Spotter calcula las calorías y los nutrientes de una comida entera a partir de una foto o de unas pocas palabras, como «arroz con pollo, poco arroz». También registra entrenamientos, peso corporal y agua. Gratis.</p>
+<a class="get" href="https://apps.apple.com/app/spotter/id6780713476">Descarga gratis en la App Store</a>
+</div><script>
+(()=>{const T={"goals": ["Perder grasa", "Mantener", "Ganar músculo"], "d": ["400 kcal por debajo del TDEE, unos 0,4 kg por semana", "igual al TDEE", "300 kcal por encima del TDEE, con entrenamiento de fuerza"], "r_note": "{g}: {d}.", "low": "Aviso: es un objetivo bajo. Consulta a un médico o dietista-nutricionista antes de comer menos de {m} kcal al día durante mucho tiempo.", "formula": "Fórmula: Mifflin-St Jeor", "formula_bf": "Fórmula: Katch-McArdle (usa la grasa corporal)", "fill": "Introduce tu edad, altura y peso."},G=[-400, 0, 300],$=i=>document.getElementById(i),
+nf=new Intl.NumberFormat("es-ES"),val=n=>document.querySelector(`input[name="${n}"]:checked`).value,num=i=>parseFloat($(i).value);
+function units(){const imp=val("u")=="i";$("hm").hidden=imp;$("hi").hidden=!imp;$("wl").textContent=$("wl").textContent.replace(/\((kg|lb)\)/,imp?"(lb)":"(kg)")}
+function calc(){const imp=val("u")=="i",a=num("age");let h=imp?(num("hf")*12+(num("hn")||0))*2.54:num("h"),w=num("w");if(imp)w*=0.45359237;
+const bf=num("bf"),ok=a>=15&&a<=90&&h>=120&&h<=230&&w>=30&&w<=300;
+if(!ok){["rg","rt","rb","rp"].forEach(i=>$(i).textContent="—");$("cnote").textContent=T.fill;$("cwarn").hidden=true;$("cform").textContent="";return}
+const fem=val("s")=="f",useBf=bf>=3&&bf<=60,lbm=useBf?w*(1-bf/100):0;
+const bmr=useBf?370+21.6*lbm:10*w+6.25*h-5*a+(fem?-161:5),tdee=bmr*parseFloat($("act").value),g=+val("g"),goal=tdee+G[g];
+const pro=useBf?lbm*2.2:w*1.8,r=x=>nf.format(Math.round(x/10)*10);
+$("rb").textContent=r(bmr);$("rt").textContent=r(tdee);$("rg").textContent=r(goal);$("rp").textContent=nf.format(Math.round(pro));
+$("cnote").textContent=T.r_note.replace("{g}",T.goals[g]).replace("{d}",T.d[g]);
+const m=fem?1200:1500;$("cwarn").hidden=goal>=m;$("cwarn").textContent=T.low.replace("{m}",nf.format(m));
+$("cform").textContent=useBf?T.formula_bf:T.formula}
+document.querySelectorAll("#calc input,#calc select").forEach(x=>x.addEventListener("input",()=>{if(x.name=="u")units();calc()}));
+document.querySelectorAll('#calc input[type=radio]').forEach(x=>x.addEventListener("change",()=>{if(x.name=="u")units();calc()}));units();calc()})();
+</script>
+<p class="note">Los valores son estimaciones para una ración habitual y varían según el restaurante, la ración y la forma de cocinar. Solo como referencia; no es un consejo médico ni nutricional. Los datos coinciden con la base de datos de alimentos de la app Spotter y se basan en la base de datos de nutrientes del Centro de Seguridad Alimentaria de Hong Kong y en USDA FoodData Central. Última actualización: 2026-11-11</p>
+</main>
+<footer><a href="/es/food/">Tabla de calorías</a><a href="/es/calorie-calculator/">Calculadora de calorías</a><a href="/privacy.html">Privacidad</a><a href="/terms.html">Términos</a></footer>
+</body>
+</html>

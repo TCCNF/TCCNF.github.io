@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TDEE 計算機：每日需要多少卡路里？（BMR 基礎代謝率）</title>
+<meta name="description" content="免費 TDEE／BMR 計算機：輸入性別、年齡、身高、體重和運動量，即時計算基礎代謝率、每日總消耗，以及減脂、維持或增肌的建議卡路里和蛋白質。">
+<link rel="canonical" href="https://spotterhk.com/calorie-calculator/">
+<link rel="alternate" hreflang="zh-Hant" href="https://spotterhk.com/calorie-calculator/">
+<link rel="alternate" hreflang="en" href="https://spotterhk.com/en/calorie-calculator/">
+<link rel="alternate" hreflang="es" href="https://spotterhk.com/es/calorie-calculator/">
+<link rel="alternate" hreflang="de" href="https://spotterhk.com/de/calorie-calculator/">
+<link rel="alternate" hreflang="x-default" href="https://spotterhk.com/en/calorie-calculator/">
+<meta property="og:title" content="TDEE 計算機：每日需要多少卡路里？（BMR 基礎代謝率）">
+<meta property="og:description" content="免費 TDEE／BMR 計算機：輸入性別、年齡、身高、體重和運動量，即時計算基礎代謝率、每日總消耗，以及減脂、維持或增肌的建議卡路里和蛋白質。">
+<meta property="og:url" content="https://spotterhk.com/calorie-calculator/">
+<meta property="og:type" content="article">
+<meta name="apple-itunes-app" content="app-id=6780713476">
+<link rel="stylesheet" href="/food/food.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "BMR 和 TDEE 是什麼？", "acceptedAnswer": {"@type": "Answer", "text": "基礎代謝率（BMR）是身體完全休息時維持心跳、呼吸和體溫所需的熱量。每日總消耗（TDEE）是 BMR 加上日常活動和運動的消耗，即你一日實際燒掉的卡路里。攝取等於 TDEE，體重大致不變；少於 TDEE 會減重，多於 TDEE 會增重。"}}, {"@type": "Question", "name": "應該用哪條公式？", "acceptedAnswer": {"@type": "Answer", "text": "一般情況使用 Mifflin-St Jeor 公式，它是現時最常用、誤差較小的估算方法。如果你知道自己的體脂率（例如 InBody 報告），計算機會改用 Katch-McArdle 公式，以去脂體重計算，對肌肉量較多的人更準確。"}}, {"@type": "Question", "name": "減脂應該減多少卡路里？", "acceptedAnswer": {"@type": "Answer", "text": "建議由 TDEE 減 300–500 大卡開始，這裡使用 400 大卡，約每週減 0.4 公斤。減得太多容易流失肌肉、難以持續。同時攝取足夠蛋白質（每公斤體重約 1.6–2.2 克）並保持重量訓練，有助保留肌肉。"}}, {"@type": "Question", "name": "增肌應該多吃多少？", "acceptedAnswer": {"@type": "Answer", "text": "建議比 TDEE 多 200–300 大卡，配合漸進的重量訓練。盈餘太大只會增加脂肪。每月體重增加約 0.5–1 公斤是合理範圍。"}}, {"@type": "Question", "name": "結果有多準確？", "acceptedAnswer": {"@type": "Answer", "text": "所有公式都是估算，個人差異可達一至兩成。最實際的方法是按建議攝取兩至三星期，記錄體重變化，再每次加減 100–200 大卡調整。本頁只供參考，不構成醫療或營養建議。"}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "TDEE 計算機：每日需要多少卡路里", "applicationCategory": "HealthApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "HKD"}}</script>
+</head>
+<body>
+<nav><a class="logo" href="/">🏋️ Spotter</a><div class="navr"><span class="langs"><b>中文</b><a href="/en/calorie-calculator/" hreflang="en">EN</a><a href="/es/calorie-calculator/" hreflang="es">ES</a><a href="/de/calorie-calculator/" hreflang="de">DE</a></span><a class="get" href="https://apps.apple.com/hk/app/spotter/id6780713476">免費下載 App</a></div></nav>
+<main>
+<style>
+.calc{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;margin:20px 0}
+.calc label{display:block;font-size:14px;color:var(--muted);margin:12px 0 6px}
+.calc input,.calc select{width:100%;font:inherit;font-size:16px;color:var(--text);background:#0d0d0d;border:1px solid var(--border);border-radius:10px;padding:10px 12px}
+.calc .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.calc .seg{display:flex;gap:6px;flex-wrap:wrap}
+.calc .seg label{margin:0;flex:1 1 0;min-width:0}
+.calc .seg input{position:absolute;opacity:0;width:1px;height:1px}
+.calc .seg span{display:block;text-align:center;padding:9px 6px;border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:15px}
+.calc .seg input:checked+span{border-color:var(--accent);background:rgba(255,107,53,.14);color:var(--accent);font-weight:600}
+.calc .seg input:focus-visible+span{outline:2px solid var(--accent)}
+.calc small{display:block;color:var(--muted);font-size:12px;margin-top:4px}
+.calc .ft{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.res div{background:#0d0d0d;border:1px solid var(--border);border-radius:12px;padding:12px}
+.res b{display:block;font-size:24px;color:var(--text)}
+.res .main{grid-column:1/-1;border-color:var(--accent)}
+.res .main b{font-size:34px;color:var(--accent)}
+.res span{font-size:13px;color:var(--muted)}
+#cnote,#cwarn,#cform{font-size:14px;color:var(--muted);margin-top:10px}
+#cwarn{color:#ffb020}
+</style><h1>TDEE 計算機：每日需要多少卡路里</h1><p class="lede">輸入你的資料，即時計算基礎代謝率（BMR）、每日總消耗（TDEE），以及減脂、維持或增肌時每日應攝取的卡路里和蛋白質。所有計算只在你的瀏覽器進行，不會傳送任何資料。</p><div class="calc" id="calc">
+<label>單位</label>
+<div class="seg"><label><input type="radio" name="u" value="m" checked><span>公制（cm／kg）</span></label><label><input type="radio" name="u" value="i"><span>英制（ft・in／lb）</span></label></div>
+<label>性別</label>
+<div class="seg"><label><input type="radio" name="s" value="m" checked><span>男</span></label><label><input type="radio" name="s" value="f"><span>女</span></label></div>
+<div class="row">
+<div><label for="age">年齡</label><input id="age" type="number" inputmode="numeric" min="15" max="90" placeholder="30"></div>
+<div id="hm"><label for="h">身高 (cm)</label><input id="h" type="number" inputmode="decimal" min="120" max="230" placeholder="170"></div>
+<div id="hi" hidden><label>身高 (ft / in)</label><div class="ft"><input id="hf" type="number" inputmode="numeric" min="4" max="7" placeholder="5"><input id="hn" type="number" inputmode="decimal" min="0" max="11" placeholder="7"></div></div>
+</div>
+<div class="row">
+<div><label for="w" id="wl">體重 (kg)</label><input id="w" type="number" inputmode="decimal" min="30" max="300" placeholder="65"></div>
+<div><label for="bf">體脂率（可選）</label><input id="bf" type="number" inputmode="decimal" min="3" max="60" placeholder="—"></div>
+</div>
+<small>知道體脂率（例如 InBody 報告）會更準確</small>
+<label for="act">運動量</label>
+<select id="act"><option value="1.2">幾乎不動：整天坐著，沒有運動</option><option value="1.375">輕度活動：一週運動 1–3 日</option><option value="1.55" selected>中度活動：一週運動 3–5 日</option><option value="1.725">高度活動：一週運動 6–7 日</option><option value="1.9">非常活躍：每日訓練或從事體力勞動</option></select>
+<label>目標</label>
+<div class="seg"><label><input type="radio" name="g" value="0" checked><span>減脂</span></label><label><input type="radio" name="g" value="1"><span>維持體重</span></label><label><input type="radio" name="g" value="2"><span>增肌</span></label></div>
+<div class="res" aria-live="polite">
+<div class="main"><span>建議每日攝取</span><b id="rg">—</b><span>大卡／日</span></div>
+<div><span>每日總消耗 TDEE</span><b id="rt">—</b><span>大卡／日</span></div>
+<div><span>基礎代謝率 BMR</span><b id="rb">—</b><span>大卡／日</span></div>
+<div class="main" style="border-color:var(--border)"><span>建議蛋白質</span><b id="rp" style="color:var(--text);font-size:24px">—</b><span>克／日</span></div>
+</div>
+<p id="cnote">請輸入年齡、身高和體重。</p><p id="cwarn" hidden></p><p id="cform"></p>
+</div><h2>知道目標之後</h2><p>有了每日目標，下一步是知道自己吃了多少。查看 <a href="/food/">食物卡路里表</a>：茶餐廳、點心、燒味、粉麵飯等 1828 款食物的熱量和三大營養素。用 Spotter App 影張相，AI 就會估算一餐的卡路里，並自動計入今日目標。</p><h2>BMR 和 TDEE 是什麼？</h2><p>基礎代謝率（BMR）是身體完全休息時維持心跳、呼吸和體溫所需的熱量。每日總消耗（TDEE）是 BMR 加上日常活動和運動的消耗，即你一日實際燒掉的卡路里。攝取等於 TDEE，體重大致不變；少於 TDEE 會減重，多於 TDEE 會增重。</p><h2>應該用哪條公式？</h2><p>一般情況使用 Mifflin-St Jeor 公式，它是現時最常用、誤差較小的估算方法。如果你知道自己的體脂率（例如 InBody 報告），計算機會改用 Katch-McArdle 公式，以去脂體重計算，對肌肉量較多的人更準確。</p><h2>減脂應該減多少卡路里？</h2><p>建議由 TDEE 減 300–500 大卡開始，這裡使用 400 大卡，約每週減 0.4 公斤。減得太多容易流失肌肉、難以持續。同時攝取足夠蛋白質（每公斤體重約 1.6–2.2 克）並保持重量訓練，有助保留肌肉。</p><h2>增肌應該多吃多少？</h2><p>建議比 TDEE 多 200–300 大卡，配合漸進的重量訓練。盈餘太大只會增加脂肪。每月體重增加約 0.5–1 公斤是合理範圍。</p><h2>結果有多準確？</h2><p>所有公式都是估算，個人差異可達一至兩成。最實際的方法是按建議攝取兩至三星期，記錄體重變化，再每次加減 100–200 大卡調整。本頁只供參考，不構成醫療或營養建議。</p><div class="cta">
+<h2>不想逐樣查？拍一張照就可以</h2>
+<p>Spotter 用 AI 從相片估算整餐的卡路里和營養，也可以直接輸入「叉燒飯 少飯」這類文字。同時記錄訓練、體重和飲水，免費使用。</p>
+<a class="get" href="https://apps.apple.com/hk/app/spotter/id6780713476">在 App Store 免費下載</a>
+</div><script>
+(()=>{const T={"goals": ["減脂", "維持體重", "增肌"], "d": ["比 TDEE 少 400 大卡，約每週減 0.4 公斤", "與 TDEE 相同", "比 TDEE 多 300 大卡，配合重量訓練"], "r_note": "{g}的建議：{d}。", "low": "提示：計算結果偏低。長期每日攝取低於 {m} 大卡，請先諮詢醫生或註冊營養師。", "formula": "公式：Mifflin-St Jeor", "formula_bf": "公式：Katch-McArdle（使用體脂率）", "fill": "請輸入年齡、身高和體重。"},G=[-400, 0, 300],$=i=>document.getElementById(i),
+nf=new Intl.NumberFormat("zh-HK"),val=n=>document.querySelector(`input[name="${n}"]:checked`).value,num=i=>parseFloat($(i).value);
+function units(){const imp=val("u")=="i";$("hm").hidden=imp;$("hi").hidden=!imp;$("wl").textContent=$("wl").textContent.replace(/\((kg|lb)\)/,imp?"(lb)":"(kg)")}
+function calc(){const imp=val("u")=="i",a=num("age");let h=imp?(num("hf")*12+(num("hn")||0))*2.54:num("h"),w=num("w");if(imp)w*=0.45359237;
+const bf=num("bf"),ok=a>=15&&a<=90&&h>=120&&h<=230&&w>=30&&w<=300;
+if(!ok){["rg","rt","rb","rp"].forEach(i=>$(i).textContent="—");$("cnote").textContent=T.fill;$("cwarn").hidden=true;$("cform").textContent="";return}
+const fem=val("s")=="f",useBf=bf>=3&&bf<=60,lbm=useBf?w*(1-bf/100):0;
+const bmr=useBf?370+21.6*lbm:10*w+6.25*h-5*a+(fem?-161:5),tdee=bmr*parseFloat($("act").value),g=+val("g"),goal=tdee+G[g];
+const pro=useBf?lbm*2.2:w*1.8,r=x=>nf.format(Math.round(x/10)*10);
+$("rb").textContent=r(bmr);$("rt").textContent=r(tdee);$("rg").textContent=r(goal);$("rp").textContent=nf.format(Math.round(pro));
+$("cnote").textContent=T.r_note.replace("{g}",T.goals[g]).replace("{d}",T.d[g]);
+const m=fem?1200:1500;$("cwarn").hidden=goal>=m;$("cwarn").textContent=T.low.replace("{m}",nf.format(m));
+$("cform").textContent=useBf?T.formula_bf:T.formula}
+document.querySelectorAll("#calc input,#calc select").forEach(x=>x.addEventListener("input",()=>{if(x.name=="u")units();calc()}));
+document.querySelectorAll('#calc input[type=radio]').forEach(x=>x.addEventListener("change",()=>{if(x.name=="u")units();calc()}));units();calc()})();
+</script>
+<p class="note">數值為一般份量的估算，實際會因店舖、份量和做法而有差異，只供參考，並非醫療或營養建議。資料與 Spotter App 內置食物資料庫一致，參考香港食物安全中心營養資料查詢及 USDA FoodData Central。最後更新：2026-11-11</p>
+</main>
+<footer><a href="/food/">食物卡路里表</a><a href="/calorie-calculator/">TDEE 計算機</a><a href="/guide.html">使用指南</a><a href="/privacy.html">私隱政策</a><a href="/terms.html">條款</a></footer>
+</body>
+</html>

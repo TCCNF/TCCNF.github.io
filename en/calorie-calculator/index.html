@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calorie Calculator: TDEE &amp; BMR – How Many Calories Do I Need?</title>
+<meta name="description" content="Free TDEE and BMR calculator. Enter sex, age, height, weight and activity to get your daily calorie needs and protein target for losing fat, maintaining or building muscle.">
+<link rel="canonical" href="https://spotterhk.com/en/calorie-calculator/">
+<link rel="alternate" hreflang="zh-Hant" href="https://spotterhk.com/calorie-calculator/">
+<link rel="alternate" hreflang="en" href="https://spotterhk.com/en/calorie-calculator/">
+<link rel="alternate" hreflang="es" href="https://spotterhk.com/es/calorie-calculator/">
+<link rel="alternate" hreflang="de" href="https://spotterhk.com/de/calorie-calculator/">
+<link rel="alternate" hreflang="x-default" href="https://spotterhk.com/en/calorie-calculator/">
+<meta property="og:title" content="Calorie Calculator: TDEE &amp; BMR – How Many Calories Do I Need?">
+<meta property="og:description" content="Free TDEE and BMR calculator. Enter sex, age, height, weight and activity to get your daily calorie needs and protein target for losing fat, maintaining or building muscle.">
+<meta property="og:url" content="https://spotterhk.com/en/calorie-calculator/">
+<meta property="og:type" content="article">
+<meta name="apple-itunes-app" content="app-id=6780713476">
+<link rel="stylesheet" href="/food/food.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What are BMR and TDEE?", "acceptedAnswer": {"@type": "Answer", "text": "Basal metabolic rate (BMR) is the energy your body uses at complete rest to keep your heart beating, breathing and temperature steady. Total daily energy expenditure (TDEE) is BMR plus everything you burn moving and exercising: the calories you actually use in a day. Eat about your TDEE and your weight stays roughly the same; eat less and you lose weight; eat more and you gain."}}, {"@type": "Question", "name": "Which formula is used?", "acceptedAnswer": {"@type": "Answer", "text": "By default the Mifflin-St Jeor equation, the most widely used and generally most accurate estimate. If you enter your body fat percentage, the calculator switches to Katch-McArdle, which works from lean body mass and suits people with more muscle."}}, {"@type": "Question", "name": "How big should a fat-loss deficit be?", "acceptedAnswer": {"@type": "Answer", "text": "Start 300–500 kcal below TDEE; this page uses 400 kcal, roughly 0.4 kg (0.9 lb) a week. Bigger deficits cost muscle and are hard to sustain. Eating enough protein (about 1.6–2.2 g per kg of body weight) and keeping up strength training helps you keep muscle."}}, {"@type": "Question", "name": "How much extra to build muscle?", "acceptedAnswer": {"@type": "Answer", "text": "About 200–300 kcal above TDEE, with progressive strength training. A bigger surplus mostly adds fat. Gaining about 0.5–1 kg (1–2 lb) a month is a reasonable pace."}}, {"@type": "Question", "name": "How accurate is this?", "acceptedAnswer": {"@type": "Answer", "text": "Every formula is an estimate, and people differ by 10–20%. Follow the target for two to three weeks, track your weight, then adjust by 100–200 kcal at a time. This page is for information only and is not medical or dietary advice."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Calorie calculator: how many calories do you need?", "applicationCategory": "HealthApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "HKD"}}</script>
+</head>
+<body>
+<nav><a class="logo" href="/en/">🏋️ Spotter</a><div class="navr"><span class="langs"><a href="/calorie-calculator/" hreflang="zh-Hant">中文</a><b>EN</b><a href="/es/calorie-calculator/" hreflang="es">ES</a><a href="/de/calorie-calculator/" hreflang="de">DE</a></span><a class="get" href="https://apps.apple.com/app/spotter/id6780713476">Get the free app</a></div></nav>
+<main>
+<style>
+.calc{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;margin:20px 0}
+.calc label{display:block;font-size:14px;color:var(--muted);margin:12px 0 6px}
+.calc input,.calc select{width:100%;font:inherit;font-size:16px;color:var(--text);background:#0d0d0d;border:1px solid var(--border);border-radius:10px;padding:10px 12px}
+.calc .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.calc .seg{display:flex;gap:6px;flex-wrap:wrap}
+.calc .seg label{margin:0;flex:1 1 0;min-width:0}
+.calc .seg input{position:absolute;opacity:0;width:1px;height:1px}
+.calc .seg span{display:block;text-align:center;padding:9px 6px;border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:15px}
+.calc .seg input:checked+span{border-color:var(--accent);background:rgba(255,107,53,.14);color:var(--accent);font-weight:600}
+.calc .seg input:focus-visible+span{outline:2px solid var(--accent)}
+.calc small{display:block;color:var(--muted);font-size:12px;margin-top:4px}
+.calc .ft{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.res div{background:#0d0d0d;border:1px solid var(--border);border-radius:12px;padding:12px}
+.res b{display:block;font-size:24px;color:var(--text)}
+.res .main{grid-column:1/-1;border-color:var(--accent)}
+.res .main b{font-size:34px;color:var(--accent)}
+.res span{font-size:13px;color:var(--muted)}
+#cnote,#cwarn,#cform{font-size:14px;color:var(--muted);margin-top:10px}
+#cwarn{color:#ffb020}
+</style><h1>Calorie calculator: how many calories do you need?</h1><p class="lede">Enter your details to see your basal metabolic rate (BMR), total daily energy expenditure (TDEE), and how many calories and how much protein to eat to lose fat, maintain or build muscle. Everything is calculated in your browser; nothing is sent anywhere.</p><div class="calc" id="calc">
+<label>Units</label>
+<div class="seg"><label><input type="radio" name="u" value="m" checked><span>Metric (cm / kg)</span></label><label><input type="radio" name="u" value="i"><span>Imperial (ft·in / lb)</span></label></div>
+<label>Sex</label>
+<div class="seg"><label><input type="radio" name="s" value="m" checked><span>Male</span></label><label><input type="radio" name="s" value="f"><span>Female</span></label></div>
+<div class="row">
+<div><label for="age">Age</label><input id="age" type="number" inputmode="numeric" min="15" max="90" placeholder="30"></div>
+<div id="hm"><label for="h">Height (cm)</label><input id="h" type="number" inputmode="decimal" min="120" max="230" placeholder="170"></div>
+<div id="hi" hidden><label>Height (ft / in)</label><div class="ft"><input id="hf" type="number" inputmode="numeric" min="4" max="7" placeholder="5"><input id="hn" type="number" inputmode="decimal" min="0" max="11" placeholder="7"></div></div>
+</div>
+<div class="row">
+<div><label for="w" id="wl">Weight (kg)</label><input id="w" type="number" inputmode="decimal" min="30" max="300" placeholder="65"></div>
+<div><label for="bf">Body fat % (optional)</label><input id="bf" type="number" inputmode="decimal" min="3" max="60" placeholder="—"></div>
+</div>
+<small>More accurate if you know it (e.g. from a body-composition scan)</small>
+<label for="act">Activity</label>
+<select id="act"><option value="1.2">Sedentary: desk job, little or no exercise</option><option value="1.375">Light: exercise 1–3 days a week</option><option value="1.55" selected>Moderate: exercise 3–5 days a week</option><option value="1.725">Active: exercise 6–7 days a week</option><option value="1.9">Very active: daily training or physical job</option></select>
+<label>Goal</label>
+<div class="seg"><label><input type="radio" name="g" value="0" checked><span>Lose fat</span></label><label><input type="radio" name="g" value="1"><span>Maintain</span></label><label><input type="radio" name="g" value="2"><span>Build muscle</span></label></div>
+<div class="res" aria-live="polite">
+<div class="main"><span>Daily calorie target</span><b id="rg">—</b><span>kcal/day</span></div>
+<div><span>TDEE</span><b id="rt">—</b><span>kcal/day</span></div>
+<div><span>BMR</span><b id="rb">—</b><span>kcal/day</span></div>
+<div class="main" style="border-color:var(--border)"><span>Protein target</span><b id="rp" style="color:var(--text);font-size:24px">—</b><span>g/day</span></div>
+</div>
+<p id="cnote">Enter your age, height and weight.</p><p id="cwarn" hidden></p><p id="cform"></p>
+</div><h2>Once you know your target</h2><p>The next step is knowing what you eat. Browse the <a href="/en/food/">food calorie tables</a>: calories and macros for 1,828 foods, from dim sum and Hong Kong café dishes to European and American favourites. In the Spotter app, take a photo of your meal and AI estimates its calories against your daily target.</p><h2>What are BMR and TDEE?</h2><p>Basal metabolic rate (BMR) is the energy your body uses at complete rest to keep your heart beating, breathing and temperature steady. Total daily energy expenditure (TDEE) is BMR plus everything you burn moving and exercising: the calories you actually use in a day. Eat about your TDEE and your weight stays roughly the same; eat less and you lose weight; eat more and you gain.</p><h2>Which formula is used?</h2><p>By default the Mifflin-St Jeor equation, the most widely used and generally most accurate estimate. If you enter your body fat percentage, the calculator switches to Katch-McArdle, which works from lean body mass and suits people with more muscle.</p><h2>How big should a fat-loss deficit be?</h2><p>Start 300–500 kcal below TDEE; this page uses 400 kcal, roughly 0.4 kg (0.9 lb) a week. Bigger deficits cost muscle and are hard to sustain. Eating enough protein (about 1.6–2.2 g per kg of body weight) and keeping up strength training helps you keep muscle.</p><h2>How much extra to build muscle?</h2><p>About 200–300 kcal above TDEE, with progressive strength training. A bigger surplus mostly adds fat. Gaining about 0.5–1 kg (1–2 lb) a month is a reasonable pace.</p><h2>How accurate is this?</h2><p>Every formula is an estimate, and people differ by 10–20%. Follow the target for two to three weeks, track your weight, then adjust by 100–200 kcal at a time. This page is for information only and is not medical or dietary advice.</p><div class="cta">
+<h2>Skip the lookup: snap a photo</h2>
+<p>Spotter&#x27;s AI estimates the calories and nutrients of a whole meal from a photo, or from a few words such as &quot;chicken rice, less rice&quot;. It also tracks workouts, body weight and water. Free.</p>
+<a class="get" href="https://apps.apple.com/app/spotter/id6780713476">Download free on the App Store</a>
+</div><script>
+(()=>{const T={"goals": ["Lose fat", "Maintain", "Build muscle"], "d": ["400 kcal below TDEE, about 0.4 kg (0.9 lb) a week", "same as TDEE", "300 kcal above TDEE, with strength training"], "r_note": "{g}: {d}.", "low": "Note: this is a low target. Talk to a doctor or registered dietitian before eating under {m} kcal a day for long.", "formula": "Formula: Mifflin-St Jeor", "formula_bf": "Formula: Katch-McArdle (uses body fat %)", "fill": "Enter your age, height and weight."},G=[-400, 0, 300],$=i=>document.getElementById(i),
+nf=new Intl.NumberFormat("en-GB"),val=n=>document.querySelector(`input[name="${n}"]:checked`).value,num=i=>parseFloat($(i).value);
+function units(){const imp=val("u")=="i";$("hm").hidden=imp;$("hi").hidden=!imp;$("wl").textContent=$("wl").textContent.replace(/\((kg|lb)\)/,imp?"(lb)":"(kg)")}
+function calc(){const imp=val("u")=="i",a=num("age");let h=imp?(num("hf")*12+(num("hn")||0))*2.54:num("h"),w=num("w");if(imp)w*=0.45359237;
+const bf=num("bf"),ok=a>=15&&a<=90&&h>=120&&h<=230&&w>=30&&w<=300;
+if(!ok){["rg","rt","rb","rp"].forEach(i=>$(i).textContent="—");$("cnote").textContent=T.fill;$("cwarn").hidden=true;$("cform").textContent="";return}
+const fem=val("s")=="f",useBf=bf>=3&&bf<=60,lbm=useBf?w*(1-bf/100):0;
+const bmr=useBf?370+21.6*lbm:10*w+6.25*h-5*a+(fem?-161:5),tdee=bmr*parseFloat($("act").value),g=+val("g"),goal=tdee+G[g];
+const pro=useBf?lbm*2.2:w*1.8,r=x=>nf.format(Math.round(x/10)*10);
+$("rb").textContent=r(bmr);$("rt").textContent=r(tdee);$("rg").textContent=r(goal);$("rp").textContent=nf.format(Math.round(pro));
+$("cnote").textContent=T.r_note.replace("{g}",T.goals[g]).replace("{d}",T.d[g]);
+const m=fem?1200:1500;$("cwarn").hidden=goal>=m;$("cwarn").textContent=T.low.replace("{m}",nf.format(m));
+$("cform").textContent=useBf?T.formula_bf:T.formula}
+document.querySelectorAll("#calc input,#calc select").forEach(x=>x.addEventListener("input",()=>{if(x.name=="u")units();calc()}));
+document.querySelectorAll('#calc input[type=radio]').forEach(x=>x.addEventListener("change",()=>{if(x.name=="u")units();calc()}));units();calc()})();
+</script>
+<p class="note">Values are estimates for a typical serving and vary with the restaurant, portion and cooking method. For reference only, not medical or nutrition advice. The data matches the food database built into the Spotter app and draws on the Hong Kong Centre for Food Safety nutrient database and USDA FoodData Central. Last updated: 2026-11-11</p>
+</main>
+<footer><a href="/en/food/">Food calorie table</a><a href="/en/calorie-calculator/">Calorie calculator</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></footer>
+</body>
+</html>
